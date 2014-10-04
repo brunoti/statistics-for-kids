@@ -1,3 +1,54 @@
 body {
-	padding-top: 50px;
+    padding-top: 50px;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+.home {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url("../imgs/divbackground.jpg") no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+#home-block {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+#home-block h1 {
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    font-size: 60px;
+}
+.white-filter {
+    display: table;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: rgba(255, 255, 255, .4);
+}
+.white-filter p {
+    font-size: 25px;
+}
+
+.section{
+	padding: 25px;
+}
+
+@media (max-width: 769px) {
+    .white-filter p {
+    	padding: 0 5px;
+        font-size: 15px;
+    }
+    #home-block h1 {
+    	padding: 0 5px;
+        font-size: 35x;
+    }
 }
