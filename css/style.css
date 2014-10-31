@@ -10,8 +10,8 @@ html, body {
     position: relative;
     width: 100%;
     height: 100%;
-    background: url("https://raw.githubusercontent.com/brunoti/projeto-estatistica/gh-pages/imgs/divbackground.jpg") no-repeat center center scroll;
-    -webkit-background-size: cover;
+    background:#45A0B2;
+-webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;

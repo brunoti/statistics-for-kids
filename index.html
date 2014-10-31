@@ -5,104 +5,164 @@
     <title>Projeto Estatistica</title>
     <link rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-cosmo.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/socialbuttons.css">
+    <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 </head>
 
 <body>
-    <div id="home" class="navbar navbar-default  navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">Statistic for Kids!</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a data-scroll href="#home">Home</a>
-                    </li>
-                    <li><a data-scroll href="#binomialDistribution">Binomial Distribution</a>
-                    </li>
-                    <li><a href="#">About</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+<div id="home" class="navbar navbar-default  navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Statistic for Kids!</a>
         </div>
-        <!-- /.container-fluid -->
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a data-scroll href="#home">Home</a>
+                </li>
+                <li><a data-scroll href="#binomialDistribution">Binomial Distribution</a>
+                </li>
+                <li><a href="#">About</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <div class="home">
-        <div class="white-filter">
-            <div id="home-block">
-                <h1>Welcome aboard Kid!</h1>
-                <p>This is the best calculator for kids who are learning statistic in school!</p>
-                <p>Look at the menu on the top to see what you can do.</p>
-            </div>
+    <!-- /.container-fluid -->
+</div>
+<div class="home">
+    <div class="white-filter">
+        <div id="home-block">
+            <h1>Welcome aboard Kid!</h1>
+
+            <p>This is the best calculator for kids who are learning statistic in school!</p>
+
+            <p>Look at the menu on the top to see what you can do.</p>
+
+            <p>
+                <a class="btn btn-lg btn-social-icon btn-github"><i class="fa fa-github"></i></a>
+                <a class="btn btn-lg btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+            </p>
         </div>
     </div>
-    <div id="binomialDistribution" class="container section">
-        <div class="page-header">
-            <h1>Binomial Distribution</h1>
-        </div>
-        <div class="row">
-            <div class="form-horizontal">
-                <div class="col-lg-12">
-                    <div class="form-group">
-                        <label class="col-lg-2" for="numbers">N (Number of tries)</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control input-sm" id="n" name="numbers">
+</div>
+<div id="binomialDistribution" class="container section">
+    <div class="page-header">
+        <h1>Binomial Distribution</h1>
+    </div>
+    <div class="row">
+        <div class="form-horizontal">
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <label class="col-lg-2" for="numbers">N (Number of tries)</label>
+
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control input-sm" id="n" name="numbers">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2" for="numbers">K (Number of successes)</label>
+
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control input-sm" id="r" name="numbers">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2" for="numbers">P (Success probability)</label>
+
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control input-sm" id="p" name="numbers">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2" for="numbers">Result</label>
+
+                    <div class="col-lg-9">
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">%</span>
+                            <input type="text" class="form-control input-sm" id="result-percent" name="numbers">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-2" for="numbers">K (Number of successes)</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control input-sm" id="r" name="numbers">
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-2" for="numbers"></label>
+
+                    <div class="col-lg-9">
+                        <div class="input-group">
+                            <span class="input-group-addon input-sm">Decimal</span>
+                            <input type="text" class="form-control input-sm" id="result-decimal" name="numbers">
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label class="col-lg-2" for="numbers">P (Success probability)</label>
-                        <div class="col-lg-9">
-                            <input type="text" class="form-control input-sm" id="p" name="numbers">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-2" for="numbers">Result</label>
-                        <div class="col-lg-9">
-                            <div class="input-group">
-                                <span class="input-group-addon input-sm">%</span>
-                                <input type="text" class="form-control input-sm" id="result-percent" name="numbers">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-lg-2" for="numbers"></label>
-                        <div class="col-lg-9">
-                            <div class="input-group">
-                                <span class="input-group-addon input-sm">Decimal</span>
-                                <input type="text" class="form-control input-sm" id="result-decimal" name="numbers">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <a class="btn btn-sm btn-default" id="binomialBtn">Clique!</a>
-                    </div>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-sm btn-default" id="binomialBtn">Calculate</a>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="js/jquery.jqplot.min.js"></script>
-    <script type="text/javascript" src="js/jqplot.plugins/jqplot.barRenderer.min.js"></script>
-    <script type="text/javascript" src="js/jqplot.plugins/jqplot.categoryAxisRenderer.min.js"></script>
-    <script type="text/javascript" src="js/jqplot.plugins/jqplot.pointLabels.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/smooth-scroll.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-</body>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1>Discrete Variable</h1>
 
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-lg-3">Insert the value type:</label>
+
+                    <div class="col-lg-9">
+                        <input class="form-control input-sm" name="dvname" type="text">
+
+                        <p class="help-block">Example: Cars, Ages, Salary.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">Insert the data:</label>
+
+                    <div class="col-lg-9">
+                        <input class="form-control input-sm" name="dvnumbers" type="text">
+
+                        <p class="help-block">Example: 2-10;2-50;5-10</p>
+                    </div>
+                </div>
+                <a class="btn btn-sm btn-default" id="ddBtn">Calculate</a>
+            </div>
+            <table class="table table-striped" id="dvtable" style="display: none;">
+                <thead>
+                <tr>
+                    <th class="title"></th>
+                    <th>Fa</th>
+                    <th>Fr</th>
+                    <th>Fra</th>
+                </tr>
+                </thead>
+            </table>
+            <div class="col-lg-4">
+                <div id="dvchart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="js/jquery.jqplot.min.js"></script>
+<script type="text/javascript" src="js/jqplot.plugins/jqplot.barRenderer.min.js"></script>
+<script type="text/javascript" src="js/jqplot.plugins/jqplot.categoryAxisRenderer.min.js"></script>
+<script type="text/javascript" src="js/jqplot.plugins/jqplot.pointLabels.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/smooth-scroll.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/dataTables.bootstrap.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
 </html>
