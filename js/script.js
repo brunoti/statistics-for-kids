@@ -37,11 +37,13 @@ function binomialDistribution() {
 
 var dataTable;
 var dvchart;
+
 function variableDistribution() {
     var numbersArray = $('input[name=dvnumbers]').val().split(';');
     var frequencyAndNumbers = new Array;
     var cumulativeFrequency = 0;
-    var totalFrequency = 0, relativeFrequency = new Array;
+    var totalFrequency = 0,
+        relativeFrequency = new Array;
     // [N,Fa,Fr,Fra]
     for (var i = 0; i < numbersArray.length; i++) {
         frequencyAndNumbers[i] = numbersArray[i].split('-');
@@ -51,7 +53,7 @@ function variableDistribution() {
     }
     console.log(totalFrequency);
     for (var i = 0; i < frequencyAndNumbers.length; i++) {
-        relativeFrequency[i] = Math.round(((100 * parseFloat(frequencyAndNumbers[i][0]) / totalFrequency) * 100) / 100);
+        relativeFrequency[i] = (parseFloat(frequencyAndNumbers[i][0]) / totalFrequency).toFixed(2) * 100;
     }
     var finalData = new Array;
     var chartData = new Array;
@@ -60,7 +62,9 @@ function variableDistribution() {
         cumulativeFrequency = cumulativeFrequency + parseFloat(relativeFrequency[i]);
         finalData[i] = [frequencyAndNumbers[i][0], frequencyAndNumbers[i][1], relativeFrequency[i], cumulativeFrequency];
         chartData[i] = [relativeFrequency[i]];
-        chartLabel[i] = {label:frequencyAndNumbers[i][1]};
+        chartLabel[i] = {
+            label: frequencyAndNumbers[i][1]
+        };
     }
     $('#dvtable .title').contents().remove();
     $('#dvtable .title').append('N of ' + $('input[name=dvname]').val());
@@ -75,10 +79,13 @@ function variableDistribution() {
     var ticks = [$('input[name=dvname]').val()];
     dvchart = $.jqplot('dvchart', chartData, {
         series: chartLabel,
-        seriesColors: ['#45A0B2', '#ACD167', '#FE92CE','#F3BB1C','#EB3D1A'],
+        seriesColors: ['#45A0B2', '#ACD167', '#FE92CE', '#F3BB1C', '#EB3D1A'],
         seriesDefaults: {
             renderer: $.jqplot.BarRenderer,
-            rendererOptions: {fillToZero: true, varyBarColor: false}
+            rendererOptions: {
+                fillToZero: true,
+                varyBarColor: false
+            }
         },
         legend: {
             show: true,
@@ -96,13 +103,70 @@ function variableDistribution() {
     });
 }
 
-$(document).ready(function () {
+function continuousVariable() {
+    var numbersArray = $('#continuousNumbers').val().split(';');
+    var frequencyAndNumbers = new Array;
+    var relativeFrequency = new Array;
+    var xmin, xmax, amplitude, k, classInterval;
+    var cumulativeFrequency = 0;
+    var totalFrequency = 0;
+    for (var i = 0; i < numbersArray.length; i++) {
+        frequencyAndNumbers[i] = numbersArray[i].split('-');
+    }
+    xmin = parseInt(frequencyAndNumbers[0][1]);
+    xmax = parseInt(frequencyAndNumbers[0][1]);
+    for (var i = 0; i < frequencyAndNumbers.length; i++) {
+        xmax = parseInt(frequencyAndNumbers[i][1]) >= xmax ? parseInt(frequencyAndNumbers[i][1]) : xmax;
+        xmin = parseInt(frequencyAndNumbers[i][1]) <= xmin ? parseInt(frequencyAndNumbers[i][1]) : xmin;
+    };
+    amplitude = xmax - xmin;
+    k = Math.sqrt(amplitude).toFixed(0);
+    while (amplitude % k !== 0) {
+        amplitude++;
+    }
+    classInterval = amplitude / k;
+    console.log(classInterval);
+    for (var i = 0; i < frequencyAndNumbers.length; i++) {
+        totalFrequency = totalFrequency + parseFloat(frequencyAndNumbers[i][0]);
+    }
+    var intHelper = xmin,
+        intHelper1;
+    var finalData = new Array;
+    var pi = new Array;
+    for (var i = 0; i <= k; i++) {
+        pi[i] = 0;
+    }
+    for (var i = 0; i <= k; i++) {
+        intHelper1 = intHelper + classInterval;
+        for (var j = 0; j < frequencyAndNumbers.length; j++) {
+            if (parseInt(frequencyAndNumbers[j][1]) >= intHelper && parseInt(frequencyAndNumbers[j][0]) < intHelper1) {
+                pi[i] = pi[i] + parseInt(frequencyAndNumbers[j][0]);
+            } 
+        };
+        finalData[i] = [i + 1, intHelper + ' |--- ' + intHelper1, pi[i]];
+        intHelper = intHelper1;
+    }
+    $('#cvtable .title').contents().remove();
+    $('#cvtable .title').append('N of ' + $('input[name=cvname]').val());
+    $('#cvtable').slideDown(1000);
+    dataTable = $('#cvtable').DataTable({
+        paging: false,
+        searching: false,
+        data: finalData
+    });
+}
+
+
+$(document).ready(function() {
     smoothScroll.init();
 
-    $('#binomialBtn').click(function () {
+    $('#binomialBtn').click(function() {
         binomialDistribution();
     });
-    $('#ddBtn').click(function () {
+    $('#cvBtn').click(function() {
+        continuousVariable();
+    });
+    $('#ddBtn').click(function() {
         if ($.fn.dataTable.isDataTable('#dvtable')) {
             dvchart.destroy();
             dataTable.destroy();

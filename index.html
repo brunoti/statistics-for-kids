@@ -3,6 +3,7 @@
 
 <head>
     <title>Projeto Estatistica</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" type="text/css" href="css/jquery.jqplot.min.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-cosmo.min.css">
     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
@@ -45,18 +46,22 @@
     <div class="white-filter">
         <div id="home-block">
             <h1>Welcome aboard Kid!</h1>
-
             <p>This is the best calculator for kids who are learning statistic in school!</p>
-
             <p>Look at the menu on the top to see what you can do.</p>
-
+            <br/>
+            <br/>
             <p>
-                <a class="btn btn-lg btn-social-icon btn-github"><i class="fa fa-github"></i></a>
-                <a class="btn btn-lg btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://github.com/brunoti" class="btn btn-lg btn-social-icon btn-github"><i class="fa fa-github"></i></a>
+                <a href="https://bitbucket.org/brunoti" class="btn btn-lg btn-social-icon btn-bitbucket"><i
+                        class="fa fa-bitbucket"></i></a> <a href="https://twitter.com/brunobass_" class="btn btn-lg btn-social-icon btn-twitter"><i
+                    class="fa fa-twitter"></i></a>
+                <a href="https://www.facebook.com/brunooliveirabass" class="btn btn-lg btn-social-icon btn-facebook"><i
+                        class="fa fa-facebook"></i></a>
             </p>
         </div>
     </div>
 </div>
+<div class="separator" style="background-color:#EB3D1A"></div>
 <div id="binomialDistribution" class="container section">
     <div class="page-header">
         <h1>Binomial Distribution</h1>
@@ -112,11 +117,13 @@
         </div>
     </div>
 </div>
+<div class="separator" style="background-color:#EB3D1A"></div>
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
-            <h1>Discrete Variable</h1>
-
+            <div class="page-header">
+                <h1>Discrete Variable</h1>
+            </div>
             <div class="form-horizontal">
                 <div class="form-group">
                     <label class="col-lg-3">Insert the value type:</label>
@@ -136,7 +143,9 @@
                         <p class="help-block">Example: 2-10;2-50;5-10</p>
                     </div>
                 </div>
-                <a class="btn btn-sm btn-default" id="ddBtn">Calculate</a>
+                <div class="form-group">
+                    <a class="btn btn-sm btn-default" id="ddBtn">Calculate</a>
+                </div>
             </div>
             <table class="table table-striped" id="dvtable" style="display: none;">
                 <thead>
@@ -154,6 +163,49 @@
         </div>
     </div>
 </div>
+<div class="separator" style="background-color:#45A0B2"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="page-header">
+                <h1>Continuous Variable</h1>
+            </div>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-lg-3">Insert the value type:</label>
+                    <div class="col-lg-9">
+                        <input class="form-control input-sm" name="cvname" type="text">
+                        <p class="help-block">Example: Cars, Ages, Salary.</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3">Insert the data:</label>
+                    <div class="col-lg-9">
+                        <input class="form-control input-sm" name="continuousNumbers" id="continuousNumbers" type="text">
+                        <p class="help-block">Example: 2-10;2-50;5-10</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-sm btn-default" id="cvBtn">Calculate</a>
+                </div>
+            </div>
+            <table class="table table-striped" id="cvtable" style="display: none;">
+                <thead>
+                <tr>
+                    <th>Classes</th>
+                    <th class="title"></th>
+                    <th>Pi</th>
+                    <th>Pr%</th>
+                    <th>F</th>
+                    <th>F%</th>
+                </tr>
+                </thead>
+            </table>
+            <div class="col-lg-4">
+                <div id="dvchart"></div>
+            </div>
+        </div>
+    </div>
 </div>
 <script type="text/javascript" src="js/jquery.jqplot.min.js"></script>
 <script type="text/javascript" src="js/jqplot.plugins/jqplot.barRenderer.min.js"></script>

@@ -42,6 +42,10 @@ html, body {
 	padding: 25px;
 }
 
+.separator{
+    height: 300px;
+    width: 100%;
+}
 @media (max-width: 769px) {
     .white-filter p {
     	padding: 0 5px;
